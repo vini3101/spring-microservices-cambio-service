@@ -16,7 +16,10 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "Cambio Service API")
 @RestController
 @RequestMapping("cambio-service")
 public class CambioController {
@@ -27,6 +30,7 @@ public class CambioController {
 	@Autowired
 	private CambioRepository repository;
 
+	@Operation(description = "Get cambio from currency")
 	@GetMapping(value = "/{amount}/{from}/{to}")
 	@Retry(name = "default")
 	@CircuitBreaker(name = "default")
