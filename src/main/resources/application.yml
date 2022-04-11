@@ -9,7 +9,7 @@ spring:
     name: cambio-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.17.0.2:3306/cambio_service?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
     username: root
     password: root
   jpa:
@@ -20,8 +20,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   flyway:
-    url: jdbc:mysql://172.17.0.2:3306/
-    schemas: cambio_service
+    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
     user: root
     password: root
   sleuth:
